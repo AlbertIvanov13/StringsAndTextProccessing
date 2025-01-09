@@ -6,8 +6,9 @@ for (int i = 0; i < bannedWords.Count; i++)
 {
 	if (text.Contains(bannedWords[i]))
 	{
-		int index = text.IndexOf(bannedWords[i]);
-		string oldValue = bannedWords[i];
-		text.Replace(bannedWords[i], "x");
+		text = text.Replace(bannedWords[i], new string('*', bannedWords[i].Length));
+		continue;
 	}
 }
+
+Console.WriteLine(text);
