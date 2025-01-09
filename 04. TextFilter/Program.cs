@@ -1,14 +1,13 @@
 ﻿
-string bannedWords = Console.ReadLine();
+List<string> bannedWords = Console.ReadLine().Split(", ").ToList();
 string text = Console.ReadLine();
 
-for (int i = 0; i < bannedWords.Length; i++)
+for (int i = 0; i < bannedWords.Count; i++)
 {
-	foreach (var word in text)
+	if (text.Contains(bannedWords[i]))
 	{
-		if (word == bannedWords[i])
-		{
-
-		}
+		int index = text.IndexOf(bannedWords[i]);
+		string oldValue = bannedWords[i];
+		text.Replace(bannedWords[i], "x");
 	}
 }
