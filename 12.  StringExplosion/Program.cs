@@ -1,23 +1,39 @@
 ﻿
-string[] text = Console.ReadLine().Split(">");
+string[] text = Console.ReadLine().Split(">").ToArray();
 
 int intRemove = 0;
+int numberToAdd = 0;
+int newNumber = 0;
+
+bool isFound = false;
+
 for (int i = 0; i < text.Length; i++)
 {
 	for (int j = 0; j < text[i].Length; j++)
 	{
-		if (char.IsDigit(text[i][j]))
+		if (char.IsLetterOrDigit(text[i][j]))
 		{
 			if (text[i].Length >= 1)
 			{
-				intRemove = int.Parse(text[i][j].ToString());
-				text[i].Remove(j);
-			}
-			if (text[i].Length > 1)
-			{
-				if (char.IsLetter(text[i][j + 1]))
+				if (char.IsDigit(text[i][j]))
 				{
-					text[i] = text[i].Remove(0, intRemove);
+					intRemove = int.Parse(text[i][j].ToString());
+					intRemove += numberToAdd;
+					if (intRemove > text[i].Length)
+					{
+						newNumber = intRemove - text[i].Length;
+						numberToAdd += newNumber;
+						text[i] = text[i].Remove(0, text[i].Length);
+					}
+					else
+					{
+						text[i] = text[i].Remove(0, intRemove);
+						isFound = true;
+					}
+				}
+				else if (newNumber > 0 && !isFound)
+				{
+					text[i] = text[i].Remove(0, newNumber);
 				}
 			}
 		}
