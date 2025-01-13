@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11. ReplaceRepeatingChars",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12.  StringExplosion", "12.  StringExplosion\12.  StringExplosion.csproj", "{7DB98477-9CDD-494F-8522-5D18C974978E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "13. LettersChangeNumbers", "13. LettersChangeNumbers\13. LettersChangeNumbers.csproj", "{66F2C24A-685F-454F-95DC-7C54C04649BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{7DB98477-9CDD-494F-8522-5D18C974978E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DB98477-9CDD-494F-8522-5D18C974978E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DB98477-9CDD-494F-8522-5D18C974978E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66F2C24A-685F-454F-95DC-7C54C04649BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66F2C24A-685F-454F-95DC-7C54C04649BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66F2C24A-685F-454F-95DC-7C54C04649BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66F2C24A-685F-454F-95DC-7C54C04649BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
