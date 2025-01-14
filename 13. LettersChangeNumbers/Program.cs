@@ -1,44 +1,64 @@
 ﻿
 string[] inputs = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
-int totalSum = 0;
+double totalSum = 0;
 string newNumber = "";
-int number = 0;
+double number = 0;
+char letterPosition = 'A';
 
 for (int i = 0; i < inputs.Length; i++)
 {
+	newNumber = "";
 	for (int j = 0; j < inputs[i].Length; j++)
 	{
-		if (char.IsUpper(inputs[i][j]))
+		if (char.IsDigit(inputs[i][j]))
 		{
-			for (int k = 0; k < inputs[i].Length; k++)
+			newNumber += inputs[i][j];
+		}
+		else
+		{
+			continue;
+		}
+	}
+	for (int k = 0; k < inputs[i].Length; k++)
+	{
+		if (char.IsLetter(inputs[i][k]))
+		{
+			if (k == inputs[i].Length - 1)
 			{
-				if (char.IsDigit(inputs[i][k]))
+				if (char.IsUpper(inputs[i][k]))
 				{
-					newNumber = inputs[i][k].ToString();
-					if (char.IsDigit(inputs[i][k + 1]))
-					{
-						newNumber += inputs[i][k + 1];
-					}
+					char letterPositionn = char.Parse(inputs[i][k].ToString());
+					letterPosition = char.ToUpper(letterPositionn);
+					int result = letterPosition - 'A' + 1;
+					totalSum -= result;
 				}
-				else
+				else if (char.IsLower(inputs[i][k]))
 				{
-					continue;
+					char letterPositionn = char.Parse(inputs[i][k].ToString());
+					letterPosition = char.ToUpper(letterPositionn);
+					int result = letterPosition - 'A' + 1;
+					totalSum += result;
 				}
+			}
+			else if (char.IsUpper(inputs[i][k]))
+			{
 				number = int.Parse(newNumber);
-				char letterPositionn = char.Parse(inputs[i][j].ToString());
-				int letterPosition = letterPositionn;
+				char letterPositionn = char.Parse(inputs[i][k].ToString());
+				letterPosition = char.ToUpper(letterPositionn);
 				int result = letterPosition - 'A' + 1;
 				totalSum += number / result;
-				break;
 			}
-		}
-		else if (char.IsLower(inputs[i][j]))
-		{
-			char letterPositionn = char.Parse(inputs[i][j].ToString());
-			int letterPosition = letterPositionn;
-			int result = char.ToUpper(letterPositionn) - 'A' + 1;
-			totalSum += result;
+			else if (char.IsLower(inputs[i][k]))
+			{
+				number = int.Parse(newNumber);
+				char letterPositionn = char.Parse(inputs[i][k].ToString());
+				letterPosition = char.ToUpper(letterPositionn);
+				int result = letterPosition - 'A' + 1;
+				totalSum += number * result;
+			}
 		}
 	}
 }
+
+Console.WriteLine($"{totalSum:f2}");
